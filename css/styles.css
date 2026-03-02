@@ -453,7 +453,7 @@ p {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.card_reino h3{
+.card_reino h3 {
     color: red;
     text-align: center;
     text-transform: uppercase;
@@ -462,12 +462,13 @@ p {
     margin-bottom: 1%;
 }
 
-.card_reino_imagem{
+.card_reino_imagem {
     width: 50%;
     height: auto;
     margin: 0 auto;
 }
-.card_reino_imagem img{
+
+.card_reino_imagem img {
     width: 100%;
     height: auto;
 }
@@ -539,4 +540,17 @@ p {
     color: #bbb;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 15px;
+}
+
+.card_conceitos {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 100%;
 }
