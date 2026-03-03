@@ -32,76 +32,50 @@
             <img src="../src/img/bcbanner.jpg" alt="Black Clover Banner" title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
-        <h1 align="center">Fale Conosco</h1>
-        <form action="../index.html" method="post">
-            <table align="center" width="500px" height="auto" border="1">
-                <thead>
-                    <tr>
-                        <td colspan="2" align="center">
-                            <h3>* Todos os campos são obrigatórios</h3>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td align="right">
-                            <h3>*Nome:</h3>
-                        </td>
-                        <td align="left">
-                            <input type="text" name="nome" required maxlength="20">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <h3>*Data de nascimento:</h3>
-                        </td>
-                        <td align="left">
-                            <input type="date" name="data" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <h3>*Telefone:</h3>
-                        </td>
-                        <td align="left">
-                            <input type="tel" name="telefone" required maxlength="11">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <h3>*E-mail:</h3>
-                        </td>
-                        <td align="left">
-                            <input type="email" name="email" required placeholder="nome@dominio.com">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <h3>*Usuário:</h3>
-                        </td>
-                        <td align="left">
-                            <input type="text" name="usuario" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <h3>*Mensagem:</h3>
-                        </td>
-                        <td align="left">
-                            <textarea name="obs" rows="6" cols="30" required></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td align="center" colspan="2">
-                            <input type="submit" name="enviar" value="Enviar">
-                            <input type="reset" name="limpar" value="Limpar">
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </form>
+        <section class="secao_contato">
+            <div class="contato_container">
+                <h1>Fale Conosco</h1>
+                <p class="aviso">* Todos os campos são obrigatórios</p>
+                
+                <form action="../index.html" method="post" class="form_contato">
+                    <div class="campo">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required maxlength="20">
+                    </div>
+        
+                    <div class="campo_grupo">
+                        <div class="campo">
+                            <label for="data">Nascimento:</label>
+                            <input type="date" id="data" name="data" required>
+                        </div>
+                        <div class="campo">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" required maxlength="11">
+                        </div>
+                    </div>
+        
+                    <div class="campo">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required placeholder="nome@dominio.com">
+                    </div>
+        
+                    <div class="campo">
+                        <label for="usuario">Usuário:</label>
+                        <input type="text" id="usuario" name="usuario" required>
+                    </div>
+        
+                    <div class="campo">
+                        <label for="obs">Mensagem:</label>
+                        <textarea id="obs" name="obs" rows="6" required></textarea>
+                    </div>
+        
+                    <div class="botoes">
+                        <button type="submit" class="btn_enviar">Enviar Feitiço</button>
+                        <button type="reset" class="btn_limpar">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
     <footer>
         <!-- Logo do Black Clover -->

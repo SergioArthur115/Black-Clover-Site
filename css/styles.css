@@ -305,6 +305,7 @@ p {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 
 /* Títulos com a cor padrão */
@@ -318,7 +319,7 @@ p {
 }
 
 /* Layout interno do autor */
-.yuki_info {
+.yuki_info, .enredo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -542,15 +543,210 @@ p {
     padding-top: 15px;
 }
 
+/* Container Principal de Conceitos */
 .card_conceitos {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5); /* Leve transparência */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espaço entre cada conceito */
+}
+
+/* Cada Bloco de Conceito Individual */
+.conceito {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    align-items: center;
+}
+
+/* Efeito de alternância: imagens ora na esquerda, ora na direita */
+.conceito:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.conceito:last-child {
+    border-bottom: none;
+}
+
+/* Estilo do Texto dentro do Conceito */
+.conceito h3 {
+    color: red;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
+
+.conceito p {
+    text-align: justify;
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Estilo da Imagem do Conceito */
+.conceito div img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 15px;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: 0.4s ease;
+}
+
+.conceito:hover div img {
+    transform: scale(1.05);
+    border-color: red;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+}
+
+/* Responsividade para Telas Pequenas */
+@media (max-width: 900px) {
+    .conceito, .conceito:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .conceito div img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    .card_conceitos {
+        padding: 20px;
+    }
+}
+
+/*-----------------------Pagina Fale conosco----------------------------------*/
+
+/* Container Principal */
+.secao_contato {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.contato_container {
+    background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 40px;
     border-radius: 20px;
-    text-align: center;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 3%;
-    padding-bottom: 3%;
     width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contato_container h1 {
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.aviso {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Estilo do Formulário */
+.form_contato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo_grupo {
+    display: flex;
+    gap: 20px;
+}
+
+.campo_grupo .campo {
+    flex: 1;
+}
+
+/* Inputs e Textarea */
+.form_contato label {
+    color: #eee;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form_contato input, 
+.form_contato textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form_contato input:focus, 
+.form_contato textarea:focus {
+    border-color: red;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn_enviar, .btn_limpar {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn_enviar {
+    background: red;
+    border: none;
+    color: white;
+}
+
+.btn_enviar:hover {
+    background: #cc0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn_limpar {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+}
+
+.btn_limpar:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
