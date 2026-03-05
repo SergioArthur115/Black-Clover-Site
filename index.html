@@ -20,14 +20,32 @@
     <!-- Menu -->
     <main>
         <nav class="menu_principal">
-            <a href="./index.html">Inicio</a>
-            <a href="./pages/sobre.html">Sobre</a>
-            <a href="./pages/personagens.html">Personagens</a>
-            <a href="./pages/adaptacoes.html">Adaptações</a>
-            <a href="./pages/material_original.html">Material Original</a>
-            <a href="./pages/universo.html">Universo</a>
-            <a href="./pages/fale_conosco.html">Fale Conosco</a>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
+            <ul class="nav-list">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./pages/sobre.html">Sobre</a></li>
+                <li><a href="./pages/personagens.html">Personagens</a></li>
+                <li><a href="./pages/adaptacoes.html">Adaptações</a></li>
+                <li><a href="./pages/material_original.html">Material Original</a></li>
+
+                <li class="dropdown">
+                    <a href="./pages/universo.html" class="dropbtn">Universo ▼</a>
+                    <ul class="submenu">
+                        <li><a href="./pages/universo.html#cavaleiros">Cavaleiros</a></li>
+                        <li><a href="./pages/universo.html#racas">Raças</a></li>
+                        <li><a href="./pages/universo.html#reinos">Reinos</a></li>
+                        <li><a href="./pages/universo.html#conceitos">Conceitos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="./pages/fale_conosco.html">Fale Conosco</a></li>
+            </ul>
         </nav>
         <!-- Banner do Black Clover-->
         <div class="banner">

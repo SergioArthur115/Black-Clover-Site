@@ -1,11 +1,55 @@
 .secao_sobre {
-    width: 40%;
     display: flex;
     align-items: center;
-    /* Centraliza horizontalmente */
     justify-content: center;
-    margin: 2% auto;
-    /* Centraliza o bloco na tela */
-    gap: 20px;
-    /* Dá um espaço entre o texto e a imagem */
+    gap: 40px;
+    
+    /* Centralização e Tamanho */
+    width: 80%; /* Aumentado para 80% para melhor leitura */
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+
+    /* Estilização padrão (Igual às outras páginas) */
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.secao_sobre h1 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.secao_sobre p {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Estilização da Imagem */
+.secao_sobre img {
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* === RESPONSIVIDADE (MOBILE) === */
+@media (max-width: 900px) {
+    .secao_sobre {
+        flex-direction: column; /* Empilha texto e imagem */
+        width: 90%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .secao_sobre img {
+        margin-top: 20px;
+    }
+    
+    .secao_sobre p {
+        text-align: center; /* Melhor leitura em telas pequenas */
+    }
 }

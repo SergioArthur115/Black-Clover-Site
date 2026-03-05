@@ -16,22 +16,147 @@ body {
 }
 
 .menu_principal {
-    text-align: center;
-    margin-top: 1%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    padding: 10px 0;
+    z-index: 1000;
 }
 
-.menu_principal a {
+.nav-list {
+    display: flex;
+    /* Força o alinhamento em linha */
+    flex-direction: row;
+    /* Garante que seja horizontal */
+    justify-content: center;
+    /* Centraliza os itens no menu */
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+    /* Espaço entre os links */
+}
+
+.nav-list li {
+    position: relative;
+    /* Base para o submenu se posicionar */
+}
+
+.nav-list a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 5px 15px;
+    padding: 10px 15px;
+    display: block;
     transition: 0.3s;
 }
 
-.menu_principal a:hover {
+.nav-list a:hover {
     color: red;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+/* === SUBMENU (DESKTOP) === */
+.submenu {
+    position: absolute;
+    top: 100%;
+    /* Aparece logo abaixo do item pai */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 180px;
+    border-radius: 0 0 10px 10px;
+
+    /* Esconde o submenu por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+
+.submenu a {
+    font-size: 0.8rem;
+    padding: 8px 20px;
+    text-align: left;
+}
+
+/* Mostra o submenu no Hover do item pai */
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* === RESPONSIVIDADE (MOBILE) === */
+.menu-checkbox,
+.menu-icon {
+    display: none;
+    /* Escondido no Desktop */
+}
+
+@media (max-width: 900px) {
+    .menu-icon {
+        display: block;
+        /* Aparece o hambúrguer */
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .menu-icon span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    .nav-list {
+        display: none; /* Esconde a lista principal */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+    }
+
+    /* Quando clicar no hambúrguer, mostra a lista */
+    .menu-checkbox:checked~.nav-list {
+        display: flex;
+    }
+
+    .submenu {
+        position: static;     /* Faz o submenu empurrar os itens de baixo */
+        transform: none;      /* Remove a centralização do desktop */
+        display: none;        /* ESCONDE POR PADRÃO NO MOBILE */
+        opacity: 1;           /* Garante que a opacidade não o esconda quando o display mudar */
+        visibility: visible;
+        background: rgba(255, 0, 0, 0.1); /* Fundo levemente vermelho para destacar */
+        width: 100%;
+        border: none;
+        padding-left: 20px;   /* Indenta os sub-itens */
+    }
+
+    /* MOSTRAR SUBMENU NO MOBILE: 
+       Opção A: Mostra sempre que o menu principal abrir */
+       .menu-checkbox:checked ~ .nav-list .submenu {
+        display: block; 
+    }
+
+    /* Opção B: Se preferir que apareça apenas ao tocar no item "Universo" (Hover simulado no toque) */
+    .dropdown:active .submenu, .dropdown:focus .submenu { display: block; }
+
+    .submenu a {
+        text-align: left;
+        text-transform: capitalize; /* Deixa mais suave que o menu principal */
+        font-size: 0.9rem;
+    }
 }
 
 .banner {

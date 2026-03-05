@@ -30,7 +30,8 @@
 }
 
 /* Layout interno do autor */
-.yuki_info, .enredo {
+.yuki_info,
+.enredo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,4 +59,11 @@
 .enredo p {
     text-align: justify;
     line-height: 1.6;
+}
+
+@media all and (max-width: 500px) {
+    .yuki_tabata,
+    .enredo {
+        width: 80%;
+    }
 }

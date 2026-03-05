@@ -1,38 +1,42 @@
 /* Container Principal */
 .secao_adaptacoes {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente a espada e os blocos */
     flex-wrap: wrap;
-    /* Permite quebrar linha em telas menores */
-    margin: 3% auto;
-    width: 90%;
-    gap: 20px;
+    margin: 50px auto;
+    width: 95%;
+    gap: 30px;
 }
 
-/* Blocos de Conteúdo (Esquerda e Direita) */
+/* Blocos de Conteúdo */
 .bloco_info {
     flex: 1;
-    min-width: 300px;
+    min-width: 320px;
+    max-width: 500px; /* Limita para não esticar demais e sumir com a espada */
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 0, 0, 0.3);
     border-radius: 20px;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Container da Imagem Central */
+/* Container da Espada (O Divisor) */
 .bloco_espada {
-    flex: 0 1 auto;
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex: 0 0 auto;
+    transition: transform 0.5s ease;
 }
 
 .espada_img {
-    height: 400px;
-    /* Ajuste conforme o tamanho da sua imagem */
+    height: 600px; /* Aumentado para ser imponente */
     width: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4)); /* Brilho na espada */
+    transition: all 0.5s ease;
 }
 
 /* Estilo dos Cards de Temporada */
@@ -66,4 +70,39 @@
     font-size: 0.9rem;
     color: #ccc;
     list-style: none;
+}
+
+/* === RESPONSIVIDADE === */
+
+/* Quando a tela for menor que 1100px (ou quando os blocos quebrarem) */
+@media (max-width: 1100px) {
+    .secao_adaptacoes {
+        flex-direction: column; /* Empilha tudo verticalmente */
+        align-items: center;
+    }
+
+    .bloco_espada {
+        display: none;
+        width: 100%;
+        margin: 20px 0;
+        order: 2; /* Garante que a espada fique entre o bloco 1 e o bloco 2 */
+    }
+
+    .espada_img {
+        height: auto;
+        width: 80%; /* Ocupa a largura da tela */
+        max-width: 500px;
+        transform: rotate(90deg); /* Deixa a espada de lado */
+    }
+
+    /* Ajuste da ordem dos blocos no mobile */
+    .bloco_info:first-child { order: 1; }
+    .bloco_info:last-child { order: 3; }
+}
+
+@media (max-width: 600px) {
+    .cards_container {
+        grid-template-columns: 1fr; /* Cards ocupam linha inteira no mobile */
+    }
+
 }

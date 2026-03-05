@@ -72,3 +72,9 @@
         background-position: 200% center;
     }
 }
+
+@media all and (max-width: 900px) {
+    .status{
+        width: 60%;
+    }
+}

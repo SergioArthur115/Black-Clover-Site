@@ -20,14 +20,32 @@
     <!-- Menu -->
     <main>
         <nav class="menu_principal">
-            <a href="../index.html">Inicio</a>
-            <a href="./sobre.html">Sobre</a>
-            <a href="./personagens.html">Personagens</a>
-            <a href="./adaptacoes.html">Adaptações</a>
-            <a href="./material_original.html">Material Original</a>
-            <a href="./universo.html">Universo</a>
-            <a href="./fale_conosco.html">Fale Conosco</a>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
+            <ul class="nav-list">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="./personagens.html">Personagens</a></li>
+                <li><a href="./adaptacoes.html">Adaptações</a></li>
+                <li><a href="./material_original.html">Material Original</a></li>
+
+                <li class="dropdown">
+                    <a href="./universo.html" class="dropbtn">Universo ▼</a>
+                    <ul class="submenu">
+                        <li><a href="./universo.html#cavaleiros">Cavaleiros</a></li>
+                        <li><a href="./universo.html#racas">Raças</a></li>
+                        <li><a href="./universo.html#reinos">Reinos</a></li>
+                        <li><a href="./universo.html#conceitos">Conceitos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="./fale_conosco.html">Fale Conosco</a></li>
+            </ul>
         </nav>
         <!-- Banner do Black Clover-->
         <div class="banner">
@@ -35,7 +53,7 @@
         </div>
         <!-- Conteúdo Principal -->
         <section class="secao_universo">
-            <div class="bloco_universo_largo">
+            <div class="bloco_universo_largo" id="cavaleiros">
                 <h2>Cavaleiros Mágicos</h2>
                 <div class="conteudo_flex">
                     <div class="texto_universo">
@@ -85,7 +103,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo_sessao">Raças do Mundo</h2>
+            <h2 class="titulo_sessao" id="racas">Raças do Mundo</h2>
             <div class="grid_universo">
                 <div class="card_universo">
                     <img src="../src/img/../img/chars/Charmy_square.webp" alt="Anões" title="Anões">
@@ -181,7 +199,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo_sessao">Reinos</h2>
+            <h2 class="titulo_sessao" id="reinos">Reinos</h2>
             <div class="grid_reinos">
                 <div class="card_reino clover">
                     <h3>Reino Clover</h3>
@@ -233,7 +251,7 @@
             <div class="card_reino_imagem">
                 <img src="../src/img/mapa.jpg" alt="Mapa Black Clover">
             </div>
-            <h2 class="titulo_sessao">Conceitos</h2>
+            <h2 class="titulo_sessao" id="conceitos">Conceitos</h2>
             <div class="card_conceitos">
                 <div class="conceito">
                     <h3>Anti-Pássaro</h3>
