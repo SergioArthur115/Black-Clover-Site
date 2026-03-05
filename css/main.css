@@ -1,0 +1,74 @@
+.status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.7);
+    /* Preto com transparência */
+    backdrop-filter: blur(10px);
+    /* Desfoca o que está atrás */
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    /* Borda vermelha sutil */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    width: 40%;
+}
+
+/* Adiciona uma linha separadora entre os itens */
+.status div:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status:hover {
+    scale: 1.1;
+}
+
+.status_anime,
+.status_manga,
+.status_criador {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo base para os títulos */
+.status h2 {
+    /* Cor de fallback caso o gradiente não carregue */
+    transition: all 0.5s ease;
+    background-size: 200% auto;
+}
+
+/* Efeito ao passar o mouse na seção de status */
+.status div:hover h2 {
+    /* Criando o gradiente de tons de vermelho */
+    background-image: linear-gradient(to right, #ff0000 0%, #a50000 50%, #ff4d4d 100%);
+
+    /* Faz o gradiente aparecer apenas dentro das letras */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Deixa o preenchimento da letra transparente para o fundo aparecer */
+    -webkit-text-fill-color: transparent;
+
+    /* Gatilho para a animação */
+    animation: gradientMove 2s linear infinite;
+}
+
+/* Animação para fazer o gradiente "mudar" ou se mover */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}

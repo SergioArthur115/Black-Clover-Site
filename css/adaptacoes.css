@@ -1,0 +1,69 @@
+/* Container Principal */
+.secao_adaptacoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* Permite quebrar linha em telas menores */
+    margin: 3% auto;
+    width: 90%;
+    gap: 20px;
+}
+
+/* Blocos de Conteúdo (Esquerda e Direita) */
+.bloco_info {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container da Imagem Central */
+.bloco_espada {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+}
+
+.espada_img {
+    height: 400px;
+    /* Ajuste conforme o tamanho da sua imagem */
+    width: auto;
+}
+
+/* Estilo dos Cards de Temporada */
+.cards_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Duas colunas de cards */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.card_temporada,
+.card_filme {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid red;
+    /* Detalhe lateral vermelho */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.card_temporada h3,
+.card_filme h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: red;
+}
+
+.card_temporada p,
+.card_filme li {
+    font-size: 0.9rem;
+    color: #ccc;
+    list-style: none;
+}

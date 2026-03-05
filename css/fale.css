@@ -1,0 +1,117 @@
+/* Container Principal */
+.secao_contato {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.contato_container {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contato_container h1 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.aviso {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Estilo do Formulário */
+.form_contato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo_grupo {
+    display: flex;
+    gap: 20px;
+}
+
+.campo_grupo .campo {
+    flex: 1;
+}
+
+/* Inputs e Textarea */
+.form_contato label {
+    color: #eee;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form_contato input, 
+.form_contato textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form_contato input:focus, 
+.form_contato textarea:focus {
+    border-color: red;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn_enviar, .btn_limpar {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn_enviar {
+    background: red;
+    border: none;
+    color: white;
+}
+
+.btn_enviar:hover {
+    background: #cc0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn_limpar {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+}
+
+.btn_limpar:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}

@@ -1,0 +1,61 @@
+.secao_material_original {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centraliza os blocos horizontalmente */
+    gap: 30px;
+    padding-bottom: 50px;
+    margin-top: 1%;
+}
+
+/* Container para Yuki Tabata e Enredo */
+.yuki_tabata,
+.enredo {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+/* Títulos com a cor padrão */
+.yuki_tabata h2,
+.enredo h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Layout interno do autor */
+.yuki_info, .enredo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.yuki_info p {
+    flex: 1;
+    text-align: justify;
+    /* Melhora a leitura de textos longos */
+    line-height: 1.6;
+    min-width: 300px;
+}
+
+.yuki_info img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+/* Ajuste do texto do enredo */
+.enredo p {
+    text-align: justify;
+    line-height: 1.6;
+}

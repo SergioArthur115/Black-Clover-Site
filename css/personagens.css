@@ -1,0 +1,59 @@
+.personagens {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 20px;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.7);
+    /* Preto com transparência */
+    backdrop-filter: blur(10px);
+    /* Desfoca o que está atrás */
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    /* Borda vermelha sutil */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.personagens_titulo {
+    width: 100%;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.personagem {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.personagem img {
+    width: 100%;
+    /* Ocupa toda a largura do card */
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.personagem h3 {
+    font-size: 0.9rem;
+    min-height: 40px;
+    /* Garante que nomes longos não desalinhem os cards */
+    display: flex;
+    align-items: center;
+}
+
+/* Efeito extra de hover */
+.personagem:hover {
+    transform: translateY(-5px);
+    border-color: red;
+    scale: 1.2;
+}

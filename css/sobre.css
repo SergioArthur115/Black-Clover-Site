@@ -1,0 +1,11 @@
+.secao_sobre {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    /* Centraliza horizontalmente */
+    justify-content: center;
+    margin: 2% auto;
+    /* Centraliza o bloco na tela */
+    gap: 20px;
+    /* Dá um espaço entre o texto e a imagem */
+}

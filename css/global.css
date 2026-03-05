@@ -1,0 +1,49 @@
+body {
+    background: radial-gradient(circle, #2c2c2c 0%, #000000 100%);
+    background-attachment: fixed;
+    /* O fundo não rola com a página */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header_logo {
+    text-align: center;
+    margin-top: 1%;
+}
+
+.header_logo img {
+    width: 100px;
+    height: auto;
+}
+
+.menu_principal {
+    text-align: center;
+    margin-top: 1%;
+}
+
+.menu_principal a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 15px;
+    transition: 0.3s;
+}
+
+.menu_principal a:hover {
+    color: red;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.banner {
+    margin-top: 1%;
+    text-align: center;
+}
+
+.banner img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    /* Brilho vermelho suave */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
