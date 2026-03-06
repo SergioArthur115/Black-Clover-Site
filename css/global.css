@@ -99,6 +99,20 @@ body {
     /* Escondido no Desktop */
 }
 
+.banner {
+    margin-top: 1%;
+    text-align: center;
+}
+
+.banner img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    /* Brilho vermelho suave */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 900px) {
     .menu-icon {
         display: block;
@@ -110,10 +124,17 @@ body {
     .menu-icon span {
         display: block;
         width: 25px;
-        height: 3px;
+        height: 4px;
         background: white;
         margin: 5px 0;
         transition: 0.3s;
+        background: #ffffff; /* Branco sólido */
+        box-shadow: 0 0 8px rgba(255, 0, 0, 0.8); /* Adiciona um brilho vermelho para destaque */
+    }
+
+    .menu_principal {
+        background: rgba(0, 0, 0, 0.85); /* Mais escuro para destacar o ícone */
+        border-bottom: 1px solid rgba(255, 0, 0, 0.3);
     }
 
     .nav-list {
@@ -157,18 +178,9 @@ body {
         text-transform: capitalize; /* Deixa mais suave que o menu principal */
         font-size: 0.9rem;
     }
+
+    .header_logo img {
+        width: 60px; /* Era 100px, agora ajustado para mobile */
+    }
 }
 
-.banner {
-    margin-top: 1%;
-    text-align: center;
-}
-
-.banner img {
-    width: 80%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-    /* Brilho vermelho suave */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}

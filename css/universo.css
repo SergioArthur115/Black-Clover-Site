@@ -275,4 +275,22 @@
     .card_conceitos {
         padding: 20px;
     }
+
+    .grid_reinos {
+        grid-template-columns: 1fr; /* Muda de 2 colunas para 1 única coluna */
+        gap: 20px;
+    }
+
+    .card_reino {
+        padding: 20px; /* Reduz o padding lateral que estava em 10% */
+        width: 100%;
+    }
+
+    .card_reino h3 {
+        font-size: 1.5rem; /* Diminui o texto para não quebrar linha estranhamente */
+    }
+
+    .card_reino_imagem {
+        width: 80%; /* Aumenta a imagem do brasão para ocupar mais o card */
+    }
 }
