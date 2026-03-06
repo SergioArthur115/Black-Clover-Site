@@ -35,7 +35,7 @@
 }
 
 .conteudo_flex img {
-    width: 300px;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 15px red;
 }
@@ -119,13 +119,17 @@
 /* Container do texto para não ficar grudado na imagem */
 .texto_universo {
     flex: 2;
-    min-width: 300px;
+    min-width: 0; /* MUITO IMPORTANTE: permite que o flex-item encolha abaixo do conteúdo */
+    width: 100%;
 }
 
 .imagem_container {
     flex: 1;
     display: flex;
     justify-content: center;
+    max-width: 100%;
+    height: auto;
+    width: 300px;
 }
 
 /* Organização das listas em colunas lado a lado */
@@ -252,6 +256,10 @@
 
 /* Responsividade para Telas Pequenas */
 @media (max-width: 900px) {
+    .conteudo_flex{
+        flex-direction: column;
+    }
+
     .conceito, .conceito:nth-child(even) {
         flex-direction: column;
         align-items: center;

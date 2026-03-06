@@ -61,9 +61,9 @@
     line-height: 1.6;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
     .yuki_tabata,
     .enredo {
-        width: 80%;
+        width: 100%;
     }
 }

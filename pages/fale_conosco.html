@@ -17,23 +17,25 @@
     <header class="header_logo">
         <img src="../src/img/bclogo.png" alt="Black Clover Logo" title="Black Clover Logo">
     </header>
-    <!-- Menu -->
+
     <main>
+        <!-- Menu -->
         <nav class="menu_principal">
+            <!-- Menu hamburguer(utilizado no mobile) -->
             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
             <label for="menu-toggle" class="menu-icon">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-
+            <!--links do menu-->
             <ul class="nav-list">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="./sobre.html">Sobre</a></li>
                 <li><a href="./personagens.html">Personagens</a></li>
                 <li><a href="./adaptacoes.html">Adaptações</a></li>
                 <li><a href="./material_original.html">Material Original</a></li>
-
+                <!--SubMenu-->
                 <li class="dropdown">
                     <a href="./universo.html" class="dropbtn">Universo ▼</a>
                     <ul class="submenu">
@@ -43,7 +45,7 @@
                         <li><a href="./universo.html#conceitos">Conceitos</a></li>
                     </ul>
                 </li>
-
+                <!--links do menu-->
                 <li><a href="./fale_conosco.html">Fale Conosco</a></li>
             </ul>
         </nav>
@@ -53,16 +55,18 @@
         </div>
         <!-- Conteúdo Principal -->
         <section class="secao_contato">
+            <!-- Fale Conosco -->
             <div class="contato_container">
+                <!-- Fale Conosco Titulo -->
                 <h1>Fale Conosco</h1>
                 <p class="aviso">* Todos os campos são obrigatórios</p>
-                
+                <!-- Fale Conosco Formulario-->
                 <form action="../index.html" method="post" class="form_contato">
                     <div class="campo">
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" required maxlength="20">
                     </div>
-        
+
                     <div class="campo_grupo">
                         <div class="campo">
                             <label for="data">Nascimento:</label>
@@ -73,22 +77,22 @@
                             <input type="tel" id="telefone" name="telefone" required maxlength="11">
                         </div>
                     </div>
-        
+
                     <div class="campo">
                         <label for="email">E-mail:</label>
                         <input type="email" id="email" name="email" required placeholder="nome@dominio.com">
                     </div>
-        
+
                     <div class="campo">
                         <label for="usuario">Usuário:</label>
                         <input type="text" id="usuario" name="usuario" required>
                     </div>
-        
+
                     <div class="campo">
                         <label for="obs">Mensagem:</label>
                         <textarea id="obs" name="obs" rows="6" required></textarea>
                     </div>
-        
+
                     <div class="botoes">
                         <button type="submit" class="btn_enviar">Enviar Feitiço</button>
                         <button type="reset" class="btn_limpar">Limpar</button>
