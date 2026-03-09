@@ -1,10 +1,15 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS (BASE)
+   ========================================================================== */
+
 body {
+    /* Fundo escuro com gradiente radial para profundidade visual */
     background: radial-gradient(circle, #2c2c2c 0%, #000000 100%);
-    background-attachment: fixed;
-    /* O fundo não rola com a página */
+    background-attachment: fixed; /* Mantém o fundo estático durante o scroll */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Container da Logo */
 .header_logo {
     text-align: center;
     margin-top: 1%;
@@ -15,36 +20,35 @@ body {
     height: auto;
 }
 
+/* ==========================================================================
+   NAVEGAÇÃO PRINCIPAL (DESKTOP)
+   ========================================================================== */
 .menu_principal {
     position: relative;
     display: flex;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.5);/* Fundo semi-transparente */
     padding: 10px 0;
-    z-index: 1000;
+    z-index: 1000;/* Garante que o menu fique sobre outros elementos */
 }
 
+/* Lista de links do menu */
 .nav-list {
     display: flex;
-    /* Força o alinhamento em linha */
     flex-direction: row;
-    /* Garante que seja horizontal */
     justify-content: center;
-    /* Centraliza os itens no menu */
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 15px;
-    /* Espaço entre os links */
 }
 
 .nav-list li {
-    position: relative;
-    /* Base para o submenu se posicionar */
+    position: relative;/* Base para o posicionamento absoluto do submenu */
 }
 
+/* Estilização dos Links */
 .nav-list a {
     color: white;
     text-decoration: none;
@@ -52,21 +56,23 @@ body {
     font-weight: bold;
     padding: 10px 15px;
     display: block;
-    transition: 0.3s;
+    transition: 0.3s; /* Suaviza a troca de cor no hover */
 }
 
+/* Efeito Hover com brilho neon */
 .nav-list a:hover {
     color: red;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
 
-/* === SUBMENU (DESKTOP) === */
+/* ==========================================================================
+   SUBMENU (DROPDOWN DESKTOP)
+   ========================================================================== */
 .submenu {
     position: absolute;
-    top: 100%;
-    /* Aparece logo abaixo do item pai */
+    top: 100%; /* Posiciona exatamente abaixo do link pai */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centraliza o submenu em relação ao pai */
     background: rgba(0, 0, 0, 0.95);
     border: 1px solid rgba(255, 0, 0, 0.3);
     list-style: none;
@@ -74,7 +80,7 @@ body {
     min-width: 180px;
     border-radius: 0 0 10px 10px;
 
-    /* Esconde o submenu por padrão */
+    /* Estado inicial: Escondido */
     opacity: 0;
     visibility: hidden;
     transition: 0.4s;
@@ -86,20 +92,17 @@ body {
     text-align: left;
 }
 
-/* Mostra o submenu no Hover do item pai */
+/* Lógica de exibição do dropdown ao passar o mouse */
 .dropdown:hover .submenu {
     opacity: 1;
     visibility: visible;
 }
 
-/* === RESPONSIVIDADE (MOBILE) === */
-.menu-checkbox,
-.menu-icon {
-    display: none;
-    /* Escondido no Desktop */
-}
+/* ==========================================================================
+   BANNER E ELEMENTOS VISUAIS
+   ========================================================================== */
 
-.banner {
+   .banner {
     margin-top: 1%;
     text-align: center;
 }
@@ -113,10 +116,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+.menu-checkbox,
+.menu-icon {
+    display: none;/* Esconde elementos de controle mobile no desktop */
+}
+
 @media (max-width: 900px) {
     .menu-icon {
-        display: block;
-        /* Aparece o hambúrguer */
+        display: block;/* Exibe o ícone do menu hamburguer */
         cursor: pointer;
         
     }
@@ -128,12 +138,13 @@ body {
     }
 
     .menu_principal {
-        background: rgba(0, 0, 0, 0.85); /* Mais escuro para destacar o ícone */
+        background: rgba(0, 0, 0, 0.85); /* Maior opacidade para leitura no mobile */
         border-bottom: 1px solid rgba(255, 0, 0, 0.3);
     }
 
+    /* Transforma a lista horizontal em um menu vertical escondido */
     .nav-list {
-        display: none; /* Esconde a lista principal */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -142,13 +153,14 @@ body {
         background: rgba(0, 0, 0, 0.95);
     }
 
-    /* Quando clicar no hambúrguer, mostra a lista */
+    /* LÓGICA DO CHECKBOX: Exibe o menu quando o input id="menu-toggle" for marcado */
     .menu-checkbox:checked~.nav-list {
         display: flex;
     }
 
+    /* Ajuste do Submenu para Mobile */
     .submenu {
-        position: static;     /* Faz o submenu empurrar os itens de baixo */
+        position: static;     /* Volta para o fluxo normal da página */
         transform: none;      /* Remove a centralização do desktop */
         display: none;        /* ESCONDE POR PADRÃO NO MOBILE */
         opacity: 1;           /* Garante que a opacidade não o esconda quando o display mudar */
@@ -156,17 +168,13 @@ body {
         background: rgba(255, 0, 0, 0.1); /* Fundo levemente vermelho para destacar */
         width: 100%;
         border: none;
-        padding-left: 20px;   /* Indenta os sub-itens */
+        padding-left: 20px;   /* Indenta sub-itens para hierarquia visual */
     }
 
-    /* MOSTRAR SUBMENU NO MOBILE: 
-       Opção A: Mostra sempre que o menu principal abrir */
-       .menu-checkbox:checked ~ .nav-list .submenu {
+    /* Mostra sempre que o menu principal abrir */
+    .menu-checkbox:checked ~ .nav-list .submenu {
         display: block; 
     }
-
-    /* Opção B: Se preferir que apareça apenas ao tocar no item "Universo" (Hover simulado no toque) */
-    .dropdown:active .submenu, .dropdown:focus .submenu { display: block; }
 
     .submenu a {
         text-align: left;
@@ -174,8 +182,9 @@ body {
         font-size: 0.9rem;
     }
 
+    /* Ajuste de logo para telas pequenas */
     .header_logo img {
-        width: 10%; /* Era 100px, agora ajustado para mobile */
+        width: 10%;
     }
 }
 

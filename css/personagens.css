@@ -1,40 +1,46 @@
+/* ==========================================================================
+   GRID DE PERSONAGENS (CONTAINER PAI)
+   ========================================================================== */
+
 .personagens {
     width: 60%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; /* Permite que os cards quebrem linha quando não houver espaço */
+    justify-content: center; /* Centraliza os cards horizontalmente */
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
     border-radius: 20px;
     gap: 20px;
     background-color: black;
-    background: rgba(0, 0, 0, 0.7);
-    /* Preto com transparência */
-    backdrop-filter: blur(10px);
-    /* Desfoca o que está atrás */
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    /* Borda vermelha sutil */
+    background: rgba(0, 0, 0, 0.7);/* Preto com transparência */
+    backdrop-filter: blur(10px);/* Desfoca o que está atrás */
+    border: 1px solid rgba(255, 0, 0, 0.3);/* Borda vermelha sutil */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
 }
 
+/* Título interno da seção de personagens */
 .personagens_titulo {
-    width: 100%;
+    width: 100%;/* Força o título a ocupar a linha inteira no flexbox */
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
 
+/* ==========================================================================
+   CARD INDIVIDUAL DO PERSONAGEM
+   ========================================================================== */
 .personagem {
-    width: 100px;
+    width: 100px;/* Largura fixa para manter as miniaturas uniformes */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Alinha nome e imagem verticalmente */
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 10px;
     border: 1px solid rgba(255, 0, 0, 0.3);
-    transition: transform 0.3s;
+    transition: transform 0.3s; /* Suaviza todas as mudanças (transform, border, scale) */
 }
 
+/* Imagem do Personagem */
 .personagem img {
     width: 100%;
     /* Ocupa toda a largura do card */
@@ -43,17 +49,17 @@
     margin-top: 10px;
 }
 
+/* Nome do Personagem */
 .personagem h3 {
     font-size: 0.9rem;
-    min-height: 40px;
-    /* Garante que nomes longos não desalinhem os cards */
+    min-height: 40px;/* Garante que nomes longos não desalinhem os cards */
     display: flex;
     align-items: center;
 }
 
-/* Efeito extra de hover */
+/* Efeito de hover */
 .personagem:hover {
-    transform: translateY(-5px);
-    border-color: red;
+    transform: translateY(-5px);/* Move o card levemente para cima */
+    border-color: red;/* Destaca a borda em vermelho vivo */
     scale: 1.2;
 }

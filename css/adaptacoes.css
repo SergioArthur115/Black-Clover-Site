@@ -1,19 +1,22 @@
-/* Container Principal */
+/* ==========================================================================
+   SEÇÃO DE ADAPTAÇÕES (CONTAINER PRINCIPAL)
+   ========================================================================== */
+
 .secao_adaptacoes {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza verticalmente a espada e os blocos */
-    flex-wrap: wrap;
+    align-items: center; /* Centraliza verticalmente a espada e os blocos - talvez retirar depois */
+    flex-wrap: wrap; /* Permite a quebra de linha em telas menores */
     margin: 50px auto;
     width: 95%;
-    gap: 30px;
+    gap: 30px; /* Espaço entre os blocos de info e a espada */
 }
 
-/* Blocos de Conteúdo */
+/* Blocos de Conteúdo (Anime e Filmes) */
 .bloco_info {
-    flex: 1;
-    min-width: 320px;
-    max-width: 500px; /* Limita para não esticar demais e sumir com a espada */
+    flex: 1; /* Faz os blocos crescerem igualmente */
+    min-width: 320px; /* Impede que o bloco fique muito "esmagado" */
+    max-width: 500px; /* Evita que o bloco ocupe a tela toda no desktop */
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 0, 0, 0.3);
@@ -23,36 +26,40 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Container da Espada (O Divisor) */
+/* ==========================================================================
+   O DIVISOR (ESPADA DO ASTA)
+   ========================================================================== */
+
 .bloco_espada {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0 0 auto;
+    flex: 0 0 auto; /* Impede que o container da espada estique ou encolha */
     transition: transform 0.5s ease;
 }
 
 .espada_img {
-    height: 600px; /* Aumentado para ser imponente */
+    height: 600px;
     width: auto;
     filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4)); /* Brilho na espada */
     transition: all 0.5s ease;
 }
 
-/* Estilo dos Cards de Temporada */
+/* ==========================================================================
+   GRID DE CARDS (DENTRO DOS BLOCOS)
+   ========================================================================== */
 .cards_container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Duas colunas de cards */
+    grid-template-columns: 1fr 1fr;/* Divide o conteúdo em duas colunas iguais */
     gap: 10px;
     margin-top: 15px;
 }
 
+/* Cards Individuais de Temporada e Filme */
 .card_temporada,
 .card_filme {
     background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid red;
-    /* Detalhe lateral vermelho */
+    border-left: 4px solid red;/* Detalhe lateral vermelho */
     padding: 15px;
     border-radius: 8px;
     text-align: left;
@@ -72,27 +79,29 @@
     list-style: none;
 }
 
-/* === RESPONSIVIDADE === */
+/* ==========================================================================
+   RESPONSIVIDADE E ADAPTAÇÃO DE LAYOUT
+   ========================================================================== */
 
-/* Quando a tela for menor que 1100px (ou quando os blocos quebrarem) */
+/* Ajustes para Tablets e telas médias (Abaixo de 1100px) */
 @media (max-width: 1100px) {
     .secao_adaptacoes {
-        flex-direction: column; /* Empilha tudo verticalmente */
+        flex-direction: column; /* Altera o layout de linha para coluna */
         align-items: center;
     }
 
     .bloco_espada {
-        display: none;
+        display: none;/*depois tentar ajustar a espada*/
         width: 100%;
         margin: 20px 0;
-        order: 2; /* Garante que a espada fique entre o bloco 1 e o bloco 2 */
+        order: 2; /* Posiciona a espada entre o primeiro e o último bloco */
     }
 
     .espada_img {
         height: auto;
-        width: 80%; /* Ocupa a largura da tela */
+        width: 80%;
         max-width: 500px;
-        transform: rotate(90deg); /* Deixa a espada de lado */
+        transform: rotate(90deg); /* Rotaciona para servir de divisor horizontal */
     }
 
     /* Ajuste da ordem dos blocos no mobile */
@@ -100,9 +109,10 @@
     .bloco_info:last-child { order: 3; }
 }
 
+/* Ajustes para Celulares (Abaixo de 600px) */
 @media (max-width: 600px) {
     .cards_container {
-        grid-template-columns: 1fr; /* Cards ocupam linha inteira no mobile */
+        grid-template-columns: 1fr; /* Muda o grid para uma única coluna */
     }
 
 }

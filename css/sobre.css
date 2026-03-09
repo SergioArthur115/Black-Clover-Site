@@ -1,50 +1,61 @@
+/* ==========================================================================
+   SEÇÃO SOBRE
+   ========================================================================== */
+
 .secao_sobre {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 40px;
     
-    /* Centralização e Tamanho */
-    width: 80%; /* Aumentado para 80% para melhor leitura */
+    /* Centralização e Dimensionamento */
+    width: 80%;
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 40px auto; /* Centraliza o container horizontalmente */
     padding: 40px;
 
-    /* Estilização padrão (Igual às outras páginas) */
+    /* Estilização Glassmorphism (Fundo semi-transparente com desfoque) */
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Efeito de desfoque atrás do container */
+    border: 1px solid rgba(255, 0, 0, 0.3); /* Bordas avermelhadas sutis */
     border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8); /* Sombra profunda para destaque */
 }
 
+/* Título da Seção */
 .secao_sobre h1 {
     margin-bottom: 20px;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);/* Brilho neon no título */
 }
 
+/* Estilização do Texto */
 .secao_sobre p {
     text-align: justify;
-    line-height: 1.6;
+    line-height: 1.6; /* Melhora a legibilidade (espaço entre linhas) */
     font-size: 1.1rem;
 }
 
-/* Estilização da Imagem */
+/* Estilização da Imagem de Destaque */
 .secao_sobre img {
     border: 2px solid rgba(255, 0, 0, 0.5);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
-/* === RESPONSIVIDADE (MOBILE) === */
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE) - Abaixo de 900px
+   ========================================================================== */
+
 @media (max-width: 900px) {
     .secao_sobre {
-        flex-direction: column; /* Empilha texto e imagem */
+        flex-direction: column; /* Empilha texto e imagem verticalmente */
         width: 90%;
         padding: 20px;
-        text-align: center;
+        text-align: center; /* Centraliza títulos e textos no mobile */
     }
 
+    /* Ajuste de margem para a imagem empilhada */
     .secao_sobre img {
         margin-top: 20px;
     }

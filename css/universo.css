@@ -1,9 +1,13 @@
+/* ==========================================================================
+   SEÇÃO UNIVERSO (CONTAINER GERAL)
+   ========================================================================== */
+
 .secao_universo {
     width: 80%;
     margin: 2% auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 40px; /* Espaçamento vertical entre os grandes blocos de conteúdo */
 }
 
 .titulo_sessao {
@@ -12,7 +16,9 @@
     font-size: 2rem;
 }
 
-/* Bloco Largo (Cavaleiros Mágicos) */
+/* ==========================================================================
+   BLOCO CAVALEIROS MÁGICOS (FLEXBOX)
+   ========================================================================== */
 .bloco_universo_largo {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
@@ -25,7 +31,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Garante que o conteúdo quebre linha em telas menores */
 }
 
 .conteudo_flex p {
@@ -116,10 +122,10 @@
     height: auto;
 }
 
-/* Container do texto para não ficar grudado na imagem */
+/* Texto dentro do bloco flexível */
 .texto_universo {
-    flex: 2;
-    min-width: 0; /* MUITO IMPORTANTE: permite que o flex-item encolha abaixo do conteúdo */
+    flex: 2; /* Ocupa o dobro do espaço da imagem */
+    min-width: 0; /* Evita que o texto "empurre" o container para fora da tela */
     width: 100%;
 }
 

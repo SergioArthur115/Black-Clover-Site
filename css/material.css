@@ -1,14 +1,19 @@
+/* ==========================================================================
+   SEÇÃO MATERIAL ORIGINAL (CONTAINER PRINCIPAL)
+   ========================================================================== */
+
 .secao_material_original {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Centraliza os blocos horizontalmente */
-    gap: 30px;
+    flex-direction: column; /* Empilha Yuki Tabata e Enredo verticalmente */
+    align-items: center;/* Centraliza os blocos horizontalmente */
+    gap: 30px; /* Espaçamento entre os grandes blocos */
     padding-bottom: 50px;
     margin-top: 1%;
 }
 
-/* Container para Yuki Tabata e Enredo */
+/* ==========================================================================
+   ESTILIZAÇÃO DOS BLOCOS (YUKI TABATA E ENREDO)
+   ========================================================================== */
 .yuki_tabata,
 .enredo {
     width: 60%;
@@ -21,7 +26,7 @@
     text-align: center;
 }
 
-/* Títulos com a cor padrão */
+/* Títulos com efeito de brilho (Glow) */
 .yuki_tabata h2,
 .enredo h2 {
     margin-bottom: 20px;
@@ -29,14 +34,16 @@
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
-/* Layout interno do autor */
+/* ==========================================================================
+   LAYOUT INTERNO (IMAGEM + TEXTO)
+   ========================================================================== */
 .yuki_info,
 .enredo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: wrap;/* Permite que a imagem pule para baixo do texto no mobile */
 }
 
 .yuki_info p {
@@ -61,6 +68,9 @@
     line-height: 1.6;
 }
 
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
 @media all and (max-width: 600px) {
     .yuki_tabata,
     .enredo {
