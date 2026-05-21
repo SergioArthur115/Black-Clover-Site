@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Clover</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="../css/global.css" />
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../css/fale.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../src/img/bclogo.png" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fale.css') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
 <body>
     <!-- Logo do Black Clover -->
     <header class="header_logo">
-        <img src="../src/img/bclogo.png" alt="Black Clover Logo" title="Black Clover Logo">
+        <img src="{{ url_for('static', filename='src/img/bclogo.png') }}" alt="Black Clover Logo"
+            title="Black Clover Logo">
     </header>
 
     <main>
@@ -28,28 +29,41 @@
             </label>
             <!--links do menu-->
             <ul class="nav-list">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./personagens.html">Personagens</a></li>
-                <li><a href="./adaptacoes.html">Adaptações</a></li>
-                <li><a href="./material_original.html">Material Original</a></li>
-                <!--SubMenu-->
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                <li><a href="{{ url_for('personagens') }}">Personagens</a></li>
+                <li><a href="{{ url_for('adaptacoes') }}">Adaptações</a></li>
+                <li><a href="{{ url_for('material_original') }}">Material Original</a></li>
+
                 <li class="dropdown">
-                    <a href="./universo.html" class="dropbtn">Universo ▼</a>
+                    <a href="{{ url_for('universo') }}" class="dropbtn">Universo ▼</a>
                     <ul class="submenu">
-                        <li><a href="./universo.html#cavaleiros">Cavaleiros</a></li>
-                        <li><a href="./universo.html#racas">Raças</a></li>
-                        <li><a href="./universo.html#reinos">Reinos</a></li>
-                        <li><a href="./universo.html#conceitos">Conceitos</a></li>
+                        <li><a href="{{ url_for('universo') }}#cavaleiros">Cavaleiros</a></li>
+                        <li><a href="{{ url_for('universo') }}#racas">Raças</a></li>
+                        <li><a href="{{ url_for('universo') }}#reinos">Reinos</a></li>
+                        <li><a href="{{ url_for('universo') }}#conceitos">Conceitos</a></li>
                     </ul>
                 </li>
-                <!--links do menu-->
-                <li><a href="./fale_conosco.html">Fale Conosco</a></li>
+
+                {% if not session.user_id %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                {% else %}
+                <li><a href="{{ url_for('user.perfil') }}">Meu Perfil</a></li>
+
+                {% if user and user.is_admin %}
+                <li><a href="{{ url_for('admin.admin') }}">Painel Admin</a></li>
+                {% else %}
+                <li><a href="{{ url_for('fale_conosco') }}">Fale Conosco</a></li>
+                {% endif %}
+
+                <li><a href="{{ url_for('auth.logout') }}" style="color: #ff4d4d;">Sair</a></li>
+                {% endif %}
             </ul>
         </nav>
         <!-- Banner do Black Clover-->
         <div class="banner">
-            <img src="../src/img/bcbanner.jpg" alt="Black Clover Banner" title="Black Clover Banner">
+            <img src="{{ url_for('static', filename='src/img/bcbanner.jpg') }}" alt="Black Clover Banner"
+                title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
         <section class="secao_contato">
@@ -102,7 +116,8 @@
     <footer>
         <!-- Logo do Black Clover -->
         <div class="header_logo">
-            <img src="../src/img/bclogo.png" alt="Black Clover Logo" title="Black Clover Logo">
+            <img src="{{ url_for('static', filename='src/img/bclogo.png') }}" alt="Black Clover Logo"
+                title="Black Clover Logo">
             <br>
         </div>
         <!-- Direitos -->

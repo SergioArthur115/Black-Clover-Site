@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Clover</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="../css/global.css" />
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../css/universo.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../src/img/bclogo.png" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/universo.css') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
 <body>
     <!-- Logo do Black Clover -->
     <header class="header_logo">
-        <img src="../src/img/bclogo.png" alt="Black Clover Logo" title="Black Clover Logo">
+        <img src="{{ url_for('static', filename='src/img/bclogo.png') }}" alt="Black Clover Logo"
+            title="Black Clover Logo">
     </header>
 
     <main>
@@ -28,28 +29,41 @@
             </label>
             <!--links do menu-->
             <ul class="nav-list">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./personagens.html">Personagens</a></li>
-                <li><a href="./adaptacoes.html">Adaptações</a></li>
-                <li><a href="./material_original.html">Material Original</a></li>
-                <!--SubMenu-->
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                <li><a href="{{ url_for('personagens') }}">Personagens</a></li>
+                <li><a href="{{ url_for('adaptacoes') }}">Adaptações</a></li>
+                <li><a href="{{ url_for('material_original') }}">Material Original</a></li>
+
                 <li class="dropdown">
-                    <a href="./universo.html" class="dropbtn">Universo ▼</a>
+                    <a href="{{ url_for('universo') }}" class="dropbtn">Universo ▼</a>
                     <ul class="submenu">
-                        <li><a href="./universo.html#cavaleiros">Cavaleiros</a></li>
-                        <li><a href="./universo.html#racas">Raças</a></li>
-                        <li><a href="./universo.html#reinos">Reinos</a></li>
-                        <li><a href="./universo.html#conceitos">Conceitos</a></li>
+                        <li><a href="{{ url_for('universo') }}#cavaleiros">Cavaleiros</a></li>
+                        <li><a href="{{ url_for('universo') }}#racas">Raças</a></li>
+                        <li><a href="{{ url_for('universo') }}#reinos">Reinos</a></li>
+                        <li><a href="{{ url_for('universo') }}#conceitos">Conceitos</a></li>
                     </ul>
                 </li>
-                <!--links do menu-->
-                <li><a href="./fale_conosco.html">Fale Conosco</a></li>
+
+                {% if not session.user_id %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                {% else %}
+                <li><a href="{{ url_for('user.perfil') }}">Meu Perfil</a></li>
+
+                {% if user and user.is_admin %}
+                <li><a href="{{ url_for('admin.admin') }}">Painel Admin</a></li>
+                {% else %}
+                <li><a href="{{ url_for('fale_conosco') }}">Fale Conosco</a></li>
+                {% endif %}
+
+                <li><a href="{{ url_for('auth.logout') }}" style="color: #ff4d4d;">Sair</a></li>
+                {% endif %}
             </ul>
         </nav>
         <!-- Banner do Black Clover-->
         <div class="banner">
-            <img src="../src/img/bcbanner.jpg" alt="Black Clover Banner" title="Black Clover Banner">
+            <img src="{{ url_for('static', filename='src/img/bcbanner.jpg') }}" alt="Black Clover Banner"
+                title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
         <section class="secao_universo">
@@ -126,8 +140,8 @@
                     </div>
 
                     <div class="imagem_container">
-                        <img src="../src/img/ordens_cavaleiros.jpg" alt="Ordens de Cavaleiros"
-                            title="Ordens de Cavaleiros">
+                        <img src="{{ url_for('static', filename='src/img/ordens_cavaleiros.jpg') }}"
+                            alt="Ordens de Cavaleiros" title="Ordens de Cavaleiros">
                     </div>
                 </div>
             </div>
@@ -135,7 +149,8 @@
             <h2 class="titulo_sessao" id="racas">Raças do Mundo</h2>
             <div class="grid_universo">
                 <div class="card_universo">
-                    <img src="../src/img/../img/chars/Charmy_square.webp" alt="Anões" title="Anões">
+                    <img src="{{ url_for('static', filename='src/img/chars/Charmy_square.webp') }}" alt="Anões"
+                        title="Anões">
                     <h3>Anões</h3>
                     <p>Um anão 「ドワーフ Dowāfu」 é um membro de uma antiga raça que viveu ao lado dos elfos e humanos.</p>
                     <p>
@@ -146,7 +161,8 @@
                     </p>
                 </div>
                 <div class="card_universo">
-                    <img src="../src/img/../img/chars/Asta_square.webp" alt="Humanos" title="Humanos">
+                    <img src="{{ url_for('static', filename='src/img/chars/Asta_square.webp') }}" alt="Humanos"
+                        title="Humanos">
                     <h3>Humanos</h3>
                     <p>Humanos 「人間 Ningen」 são a raça dominante no mundo, ocupando os principais reinos e terras.</p>
                     <p>
@@ -161,7 +177,8 @@
                     </p>
                 </div>
                 <div class="card_universo">
-                    <img src="../src/img/chars/Licht_square.webp" alt="Elfos" title="Elfos">
+                    <img src="{{ url_for('static', filename='src/img/chars/Licht_square.webp') }}" alt="Elfos"
+                        title="Elfos">
                     <h3>Elfos</h3>
                     <p>
                         A Tribo Elfo 「エルフ族 Erufu-zoku」 são uma antiga raça de pessoas que moravam na Região Esquecida do
@@ -180,7 +197,8 @@
                     </p>
                 </div>
                 <div class="card_universo">
-                    <img src="../src/img/chars/Zagred_square.webp" alt="Demônios" title="Demônios">
+                    <img src="{{ url_for('static', filename='src/img/chars/Zagred_square.webp') }}" alt="Demônios"
+                        title="Demônios">
                     <h3>Demônios</h3>
                     <p>
                         Diabos ou Demônios 「悪魔 Akuma」 são uma raça antiga de seres mágicos que habitam o submundo 「冥府
@@ -204,7 +222,8 @@
                     </p>
                 </div>
                 <div class="card_universo">
-                    <img src="../src/img/chars/Sylph_square.webp" alt="Espíritos" title="Espíritos">
+                    <img src="{{ url_for('static', filename='src/img/chars/Sylph_square.webp') }}" alt="Espíritos"
+                        title="Espíritos">
                     <h3>Espíritos</h3>
                     <p>
                         A Magia Espiritual「精霊魔法 Seirei Mahō」 é uma forma rara de magia que permite ao usuário invocar um
@@ -278,7 +297,7 @@
                 </div>
             </div>
             <div class="card_reino_imagem">
-                <img src="../src/img/mapa.jpg" alt="Mapa Black Clover">
+                <img src="{{ url_for('static', filename='src/img/mapa.jpg') }}" alt="Mapa Black Clover">
             </div>
             <!--Seção explicativa dos conceitos do mundo-->
             <h2 class="titulo_sessao" id="conceitos">Conceitos</h2>
@@ -294,7 +313,8 @@
                         Anti-pássaros não abordarão ninguém com altos níveis de mana e ficarão assustados quando se
                         aproximarem daqueles com poderosa mana. Atualmente, apenas Nero é mostrado para poder detectar
                         pedras mágicas e armas anti-magia.</p>
-                    <div><img src="../src/img/anti_passaro.jpg" alt="Anti Pássaro" title="Anti Pássaro"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/anti_passaro.jpg') }}" alt="Anti Pássaro"
+                            title="Anti Pássaro"></div>
                 </div>
                 <div class="conceito">
                     <h3>Grande Zona Mágica</h3>
@@ -304,7 +324,8 @@
                         Vulcão Ultime: Esta área vulcânica é usada para treinamento. Zona da Rocha de Gravidade: Esta
                         área contém grandes rochas flutuantes, e a maior delas é uma masmorra que o Olho do Sol da
                         Meia-Noite usa como esconderijo.</p>
-                    <div><img src="../src/img/zona_magica.jpg" alt="Grande Zona Mágica" title="Grande Zona Mágica">
+                    <div><img src="{{ url_for('static', filename='src/img/zona_magica.jpg') }}" alt="Grande Zona Mágica"
+                            title="Grande Zona Mágica">
                     </div>
                 </div>
                 <div class="conceito">
@@ -321,7 +342,7 @@
                         Os magos manipulam inconscientemente seu ki ao gerar seu poder mágico. Ao manipular
                         deliberadamente seu ki, alguns magos podem aumentar temporariamente seu poder mágico e força
                         física.</p>
-                    <div><img src="../src/img/ki.jpg" alt="KI" title="KI"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/ki.jpg') }}" alt="KI" title="KI"></div>
                 </div>
                 <div class="conceito">
                     <h3>Magia</h3>
@@ -339,7 +360,8 @@
                         empregar nelas formas de magia tidas como não elementais, alterando suas propriedades, tal como:
                         Magia de Cura conjuntamente com Magia de Fogo, gerando o efeito de cura de ferimentos e não de
                         queima.</p>
-                    <div><img src="../src/img/magia.jpg" alt="magia" title="magia"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/magia.jpg') }}" alt="magia" title="magia">
+                    </div>
                 </div>
                 <div class="conceito">
                     <h3>Grimório</h3>
@@ -349,7 +371,8 @@
                         inabalável do mago. Em ocasiões raras, é dado a aqueles com forte determinação em meio a uma
                         crise. Apesar de ser a fonte dos feitiços do mago, não ter a propriedade de um grimório não
                         impede que o mago empregue sua magia, contudo impede este lance feitiços especializados.</p>
-                    <div><img src="../src/img/grimorio.jpg" alt="Grimório" title="Grimório"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/grimorio.jpg') }}" alt="Grimório"
+                            title="Grimório"></div>
                 </div>
                 <div class="conceito">
                     <h3>Mana</h3>
@@ -387,7 +410,7 @@
                         elemento do qual seu atributo é derivado. Um exemplo seria magos com uma afinidade para
                         elementos baseados no vento com a capacidade latente de mana sensorial. Isso resultou daqueles
                         magos com maior sensibilidade ao fluxo de mana.</p>
-                    <div><img src="../src/img/mana.jpg" alt="Mana" title="Mana"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/mana.jpg') }}" alt="Mana" title="Mana"></div>
                 </div>
                 <div class="conceito">
                     <h3>Masmorras</h3>
@@ -415,7 +438,8 @@
                         sala de tesouros, a masmorra entraria em colapso assim que os principais tesouros fossem
                         levados. Os locais onde os principais tesouros estavam localizados são geralmente o ponto de
                         origem da caverna.</p>
-                    <div><img src="../src/img/masmorras.jpg" alt="Masmorras" title="Masmorras"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/masmorras.jpg') }}" alt="Masmorras"
+                            title="Masmorras"></div>
                 </div>
                 <div class="conceito">
                     <h3>Matriz Rúnica</h3>
@@ -439,7 +463,8 @@
                         como bons instintos e reflexos rápidos. Como tal, os magos do Quinto Estágio e abaixo são muito
                         fracos para formar as runas corretamente, e apenas os magos do Terceiro Estágio ou superior são
                         habilidosos o suficiente para usar a técnica em cenários de combate.</p>
-                    <div><img src="../src/img/matriz_runica.jpg" alt="Matriz Rúnica" title="Matriz Rúnica"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/matriz_runica.jpg') }}" alt="Matriz Rúnica"
+                            title="Matriz Rúnica"></div>
                 </div>
                 <div class="conceito">
                     <h3>Árvore de Qliphoth</h3>
@@ -457,7 +482,8 @@
                         ritual, então se eles forem derrotados, o ritual será interrompido. O ritual leva sete dias para
                         ser concluído, momento em que os usuários da Árvore de Mundo e de Magia de Escuridão morrerão.
                     </p>
-                    <div><img src="../src/img/arvore.jpg" alt="Árvore de Qliphoth" title="Árvore de Qliphoth"></div>
+                    <div><img src="{{ url_for('static', filename='src/img/arvore.jpg') }}" alt="Árvore de Qliphoth"
+                            title="Árvore de Qliphoth"></div>
                 </div>
             </div>
         </section>
@@ -466,7 +492,8 @@
     <footer>
         <!-- Logo do Black Clover -->
         <div class="header_logo">
-            <img src="../src/img/bclogo.png" alt="Black Clover Logo" title="Black Clover Logo">
+            <img src="{{ url_for('static', filename='src/img/bclogo.png') }}" alt="Black Clover Logo"
+                title="Black Clover Logo">
             <br>
         </div>
         <!-- Direitos -->
