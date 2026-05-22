@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
@@ -66,18 +66,27 @@
                 title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
-        <section class="status">
-            <h2>Cadastro</h2>
-
-            <form method="POST" enctype="multipart/form-data">
-                <input name="nome" placeholder="Nome"><br />
-                <input name="email" id="email" placeholder="Email"><br />
-                <span id="msg"></span>
-
-                <input type="file" name="foto"><br />
-                <input name="senha" type="password"><br />
-                <button>Cadastrar</button>
-            </form>
+        <section class="secao_auth">
+            <div class="auth_container">
+                <h2>Cadastro</h2>
+                <form method="POST" enctype="multipart/form-data" class="form_auth">
+                    <div class="campo">
+                        <input type="text" name="nome" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="campo">
+                        <input name="email" id="email" type="email" placeholder="E-mail" required>
+                        <span id="msg"></span>
+                    </div>
+                    <div class="campo campo_linha">
+                        <label>Foto de Perfil:</label>
+                        <input type="file" name="foto">
+                    </div>
+                    <div class="campo">
+                        <input name="senha" type="password" placeholder="Senha" required>
+                    </div>
+                    <button class="btn_principal">Cadastrar</button>
+                </form>
+            </div>
         </section>
     </main>
     <!-- Rodapé -->

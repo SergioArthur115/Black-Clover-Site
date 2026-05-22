@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
@@ -66,19 +66,32 @@
                 title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
-        <section class="status">
-            <h2>Perfil</h2>
+        <section class="secao_auth">
+            <div class="auth_container">
+                <h2>Perfil</h2>
 
-            <img src="/static/src/users/{{user.foto}}" width="100">
+                <img src="/static/src/users/{{user.foto}}" width="120" height="120" class="foto_preview">
 
-            <p>{{user.nome}}</p>
+                <form method="POST" enctype="multipart/form-data" class="form_auth">
+                    <div class="campo">
+                        <label>Nome:</label>
+                        <input type="text" name="nome" value="{{user.nome}}" required>
+                    </div>
+                    <div class="campo">
+                        <label>E-mail:</label>
+                        <input name="email" type="email" value="{{user.email}}" required>
+                    </div>
+                    <div class="campo campo_linha">
+                        <label>Alterar Foto:</label>
+                        <input type="file" name="foto">
+                    </div>
+                    <button class="btn_principal">Salvar Alterações</button>
+                </form>
 
-            <form method="POST" enctype="multipart/form-data">
-                <input name="nome" value="{{user.nome}}"><br />
-                <input name="email" value="{{user.email}}"><br />
-                <input type="file" name="foto"><br />
-                <button>Salvar</button>
-            </form>
+                <a href="{{ url_for('auth.logout') }}" style="text-decoration: none;">
+                    <button class="btn_secundario" style="color: #ff4d4d;">Sair da Conta</button>
+                </a>
+            </div>
         </section>
     </main>
     <!-- Rodapé -->

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
@@ -66,16 +66,22 @@
                 title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
-        <section class="status">
-            <h2>Login</h2>
-
-            <form method="POST">
-                <input name="email" placeholder="Email"><br />
-                <input name="senha" type="password"><br />
-                <button>Entrar</button>
-            </form>
-
-            <a href="/register">Cadastrar</a>
+        <section class="secao_auth">
+            <div class="auth_container">
+                <h2>Login</h2>
+                <form method="POST" class="form_auth">
+                    <div class="campo">
+                        <input name="email" type="email" placeholder="Seu E-mail" required>
+                    </div>
+                    <div class="campo">
+                        <input name="senha" type="password" placeholder="Sua Senha" required>
+                    </div>
+                    <button class="btn_principal">Entrar</button>
+                </form>
+                <div class="auth_links">
+                    <a href="/register">Ainda não tem conta? Cadastrar-se</a>
+                </div>
+            </div>
         </section>
     </main>
     <!-- Rodapé -->

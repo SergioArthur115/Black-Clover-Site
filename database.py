@@ -28,7 +28,7 @@ def init_db():
         INSERT OR IGNORE INTO users (nome,email,senha,foto,is_admin)
         VALUES (?,?,?,?,1)
     """,
-        ("Admin", "admin@gmail.com", generate_password_hash("123456"), "default.png"),
+        ("Admin", "admin@gmail.com", generate_password_hash("123456"), "default.jpg"),
     )
 
     conn.commit()

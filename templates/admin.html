@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='src/img/bclogo.png') }}" />
 </head>
 
@@ -53,7 +53,6 @@
                 {% if user and user.is_admin %}
                 <li><a href="{{ url_for('admin.admin') }}">Painel Admin</a></li>
                 {% else %}
-                <li><a href="{{ url_for('fale_conosco') }}">Fale Conosco</a></li>
                 {% endif %}
 
                 <li><a href="{{ url_for('auth.logout') }}" style="color: #ff4d4d;">Sair</a></li>
@@ -66,54 +65,58 @@
                 title="Black Clover Banner">
         </div>
         <!-- Conteúdo Principal -->
-        <section class="status">
-            <h2>Painel Admin</h2>
+        <section class="secao_admin">
+            <div class="admin_container">
+                <h2>Painel Admin</h2>
 
-            <a href="/logout"><button>Sair</button></a>
+                <div style="text-align: right; margin-bottom: 15px;">
+                    <a href="{{ url_for('auth.logout') }}"><button class="btn_acao btn_excluir">Sair do
+                            Painel</button></a>
+                </div>
 
-            <hr>
+                <hr>
 
-            <!--BUSCA -->
-            <form method="GET">
-                <input name="search" placeholder="Buscar nome ou email" value="{{search}}">
-                <select name="order">
-                    <option value="nome" {% if order=='nome' %}selected{% endif %}>Nome</option>
-                    <option value="email" {% if order=='email' %}selected{% endif %}>Email</option>
-                </select>
-                <button>Buscar</button>
-            </form>
+                <form method="GET" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input name="search" placeholder="Buscar nome ou email" value="{{search}}"
+                        style="flex: 2; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; color: white;">
+                    <select name="order"
+                        style="flex: 1; background: #111; border: 1px solid rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; color: white;">
+                        <option value="nome" {% if order=='nome' %}selected{% endif %}>Nome</option>
+                        <option value="email" {% if order=='email' %}selected{% endif %}>Email</option>
+                    </select>
+                    <button class="btn_principal" style="width: auto; margin: 0; padding: 10px 20px;">Buscar</button>
+                </form>
 
-            <hr>
+                <hr>
 
-            <ul>
-                {% for u in users %}
-                <li>
+                <ul class="admin_lista">
+                    {% for u in users %}
+                    <li class="admin_item">
+                        <div class="admin_info">
+                            <img src="/static/src/users/{{u.foto}}" width="50" height="50" class="admin_foto">
+                            <div class="admin_texto">
+                                <strong>{{u.nome}}</strong> <br> <span
+                                    style="font-size: 0.85rem; color: #aaa;">{{u.email}}</span>
+                            </div>
+                        </div>
+                        <div class="admin_acoes">
+                            <a href="/admin/edit/{{u.id}}" class="btn_acao btn_editar">Editar</a>
+                            <a href="/admin/delete/{{u.id}}" onclick="return confirm('Tem certeza?')"
+                                class="btn_acao btn_excluir">Excluir</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
 
-                    <img src="/static/src/users/{{u.foto}}" width="50">
-
-                    {{u.nome}} - {{u.email}}
-
-                    <a href="/admin/edit/{{u.id}}">
-                        <button>Editar</button>
+                <div class="paginacao">
+                    {% for p in range(1, total_pages + 1) %}
+                    <a href="?page={{p}}&search={{search}}&order={{order}}">
+                        <button class="btn_pag {% if p == page %}ativo{% endif %}">
+                            {{p}}
+                        </button>
                     </a>
-
-                    <a href="/admin/delete/{{u.id}}">
-                        <button onclick="return confirm('Tem certeza?')">Excluir</button>
-                    </a>
-
-                </li>
-                {% endfor %}
-            </ul>
-
-            <!--PAGINAÇÃO -->
-            <div>
-                {% for p in range(1, total_pages + 1) %}
-                <a href="?page={{p}}&search={{search}}&order={{order}}">
-                    <button {% if p==page %}style="font-weight:bold" {% endif %}>
-                        {{p}}
-                    </button>
-                </a>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </section>
     </main>

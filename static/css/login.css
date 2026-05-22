@@ -1,0 +1,335 @@
+/* Container Principal e Layout Centralizado */
+.secao_auth, .secao_admin {
+    display: block;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.auth_container, .admin_container {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+/*Painel Admin*/
+.admin_container {
+    max-width: 800px;
+}
+
+/* Cabeçalhos e Títulos*/
+.auth_container h2, .admin_container h2 {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+/* Formulários em blocos verticais */
+.form_auth {
+    display: block;
+    width: 100%;
+}
+
+.campo {
+    display: flex;       
+    flex-direction: column; 
+    margin-bottom: 20px;
+}
+
+.campo_linha {
+    flex-direction: row;
+    align-items: center; 
+    gap: 15px;           
+}
+
+.campo_linha label {
+    display: inline-block;
+    margin-bottom: 0;    
+    white-space: nowrap;
+}
+
+.campo_linha input[type="file"] {
+    flex: 1;
+}
+
+.campo label {
+    display: block;
+    color: #eee;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* Inputs, Selects e Textareas*/
+.form_auth input[type="text"],
+.form_auth input[type="email"],
+.form_auth input[type="password"],
+.admin_container input[type="text"],
+.admin_container select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+::placeholder {
+    color: #888;
+    opacity: 1;
+}
+
+/* Efeito de Foco nos Inputs*/
+.form_auth input:focus,
+.admin_container input[type="text"]:focus,
+.admin_container select:focus {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+/* Mensagem de Validação de Email */
+#msg {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #ff4d4d; /* Cor padrão de aviso */
+}
+
+/* Upload de Arquivo / Foto do Usuário */
+.foto_preview {
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.form_auth input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Botões do Sistema */
+.btn_principal, .btn_secundario {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn_principal {
+    background: #ff0000;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.btn_principal:hover {
+    background: #cc0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+    transform: translateY(-2px);
+}
+
+.btn_secundario {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn_secundario:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Links Alternativos de Navegação */
+.auth_links {
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+}
+
+.auth_links a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.auth_links a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Elementos de Divisão do Painel Admin (<hr>) */
+.admin_container hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.5), transparent);
+    margin: 25px 0;
+}
+
+/* Barra de Filtros e Busca do Admin */
+.admin_filtros {
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.admin_filtros form {
+    display: block;
+}
+
+/* Lista de Usuários no Painel Admin */
+.admin_lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.admin_item {
+    display: table;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.admin_item:hover {
+    background: rgba(255, 0, 0, 0.03);
+    border-color: rgba(255, 0, 0, 0.2);
+}
+
+.admin_info {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.admin_foto {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-right: 15px;
+    float: left;
+    object-fit: cover;
+}
+
+.admin_texto {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.admin_acoes {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Botões Inline específicos para Ações do Admin (Editar / Excluir) */
+.btn_acao {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+    margin-left: 5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn_editar {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn_editar:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn_excluir {
+    background: rgba(255, 77, 77, 0.2);
+    border: 1px solid rgba(255, 77, 77, 0.4);
+    color: #ff4d4d;
+}
+
+.btn_excluir:hover {
+    background: #ff4d4d;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+/* Paginação do Painel Admin */
+.paginacao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paginacao a {
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+.btn_pag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: 0.2s;
+}
+
+.btn_pag:hover {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.btn_pag.ativo {
+    background: #ff0000;
+    border-color: #ff0000;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
